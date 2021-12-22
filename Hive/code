@@ -45,7 +45,8 @@ from orders od join (
     select order_id,count(*) as pd_count from product 
     group by order_id 
 )pd on od.order_id == pd.order_id
-group by user_id
+group by user_id;
+
 
 
 
