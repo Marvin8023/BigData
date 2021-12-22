@@ -1,0 +1,43 @@
+1、创建表 orders,product
+
+create table orders (order_id string, user_id string,eval_set string, order_num string, order_dow string, order_houw_of_day string, days_since_prior_order string) row format delimited fields terminated by ',' tblproperties("skip.header.line.count"="1");
+
+load data local inpath '/mnt/badou_project_data/project1/orders.csv' into table orders;
+
+create table product (order_id string, product_id string,add_to_cart_order string, reordered string) row format delimited fields terminated by ',' tblproperties("skip.header.line.count" ="1");
+
+load data local inpath '/mnt/badou_project_data/project1/order_products__train.csv' into table product;
+
+2、用户有多少个订单
+
+create table user_order_num as select user_id,count(*) as user_order_num from orders group by user_id;
+
+3、每个用户平均每个订单多少个商品
+
+create table user_order_avg as
+select od.user_id,sum(pd_cnt) as count_pd,count(od.order_id) as count_od,sum(pd_cnt)/count(od.order_id) as avg_pre_pcount
+from orders od join(
+    select order_id,count(*) as pd_cnt
+    from product group by order_id
+)pd
+on od.order_id == pd.order_id
+group by od.user_id;
+
+4、每个用户在这一周中的购买订单的分布情况
+
+create table user_order_week as
+select user_id,
+sum(case order_dow when '0' then 1 else 0 end) dow_0,
+sum(case order_dow when '1' then 1 else 0 end) dow_1,
+sum(case order_dow when '2' then 1 else 0 end) dow_2,
+sum(case order_dow when '3' then 1 else 0 end) dow_3,
+sum(case order_dow when '4' then 1 else 0 end) dow_4,
+sum(case order_dow when '5' then 1 else 0 end) dow_5,
+sum(case order_dow when '6' then 1 else 0 end) dow_6
+from orders group by user_id;
+
+5、一个用户平均每个月购买多少个商品（30天）
+
+
+
+

@@ -26,26 +26,40 @@ eg: wordcount:
 ## Hive基本语法
 >https://www.yiibai.com/hive
 
-### 创建数据库: `create database [database_name];`
+### 创建数据库: 
+
+`create database [database_name];`
 
 ### 建表 
 PS:查询建表语句 `show create table [table_name];`
 
-1.直接建表：`create table dev.movies (uid string,iid string,score string , ts string)  row format delimited fields terminated by '\t' tblproperties("skip.header.line.count"="1");`
+1.直接建表：
 
-2.查询建表：`create table tmp as select * from movices limit 100;`
+`create table dev.movies (uid string,iid string,score string , ts string)  row format delimited fields terminated by '\t' tblproperties("skip.header.line.count"="1");`
 
-3.like建表：`create table movies_like like  movies_select;`
+2.查询建表：
+
+`create table tmp as select * from movices limit 100;`
+
+3.like建表：
+
+`create table movies_like like  movies_select;`
 
 **PS: 2、3 建表语句不做数据导入。**
 
 ### 导入数据
 
-1.hadoop上传 `hadoop fs -put`
+1.hadoop上传 
 
-2.从本地导入 `load data local inpath '/usr/local/src/class/hiveData/movies/ua.base' into table movies`
+`hadoop fs -put`
 
-3.从hdfs导入 `load data  inpath '/ua.base' into table movies;` hdfs相应文件会移动至hive建表的目录下。
+2.从本地导入 
+
+`load data local inpath '/usr/local/src/class/hiveData/movies/ua.base' into table movies`
+
+3.从hdfs导入 
+
+`load data  inpath '/ua.base' into table movies;` --hdfs相应文件会移动至hive建表的目录下。
 
 ### 查询
 
@@ -55,9 +69,13 @@ PS:查询建表语句 `show create table [table_name];`
 
 #### 常用查询函数
 
-1.常见函数：`sum(),row_number(),mean(),avg()，rank()……`
+1.常见函数：
 
-2.分组排序:`over([partition by col1] [order by col2] [asc/desc])`
+`sum(),row_number(),mean(),avg()，rank()……`
+
+2.分组排序:
+
+`over([partition by col1] [order by col2] [asc/desc])`
 
     a.Partition by [col] 按哪列进行分组，默认全局排序，如果指定一列，则按照指定列进行分组，然后进行排序
     
@@ -65,15 +83,21 @@ PS:查询建表语句 `show create table [table_name];`
     
     c.asc/desc 升降序 默认升序
 
-3.转列表（集合）:`collect_list(id) collect_set(id)`
+3.转列表（集合）:
+
+`collect_list(id) collect_set(id)`
 
 将同一分组转为集合或列表。
 
-4.条件函数：`case when [] then [] else [] end as col` 
+4.条件函数：
+
+`case when [] then [] else [] end as col` 
 
 按条件转列。
 
-5.正则函数：`regexp_replace(rol,"re","")`
+5.正则函数：
+
+`regexp_replace(rol,"re","")`
 
 格式化数据.
 
@@ -144,4 +168,81 @@ from … where … select … group by … having … order by …
 >4.文件超大。
 
 4.cluster by
->cluster by除了具有distribute by的功能外还兼具sort by的功能。但是排序只能是倒叙排序，不能指定排序规则为ASC或者DESC。
+>cluster by除了具有distribute by的功能外还兼具sort by的功能。但是**排序只能是倒叙排序**，不能指定排序规则为ASC或者DESC。
+
+## 内部表和外部表
+
+1、建表语句：
+
+    内部表:`create table [表名]`  （默认内部表）
+
+    外部表:`create external table [表名]  location ‘hdfs_path ’` **(hdfs_path必须是文件夹，否则会报错**
+ 
+2、区别
+
+    删除时，内部表：删除数据和元数据。外部表：只删除元数据。
+
+    一般不影响整体业务的临时业务表建内部表。基础数据建立外部表。
+---
+
+## 窄表和宽表
+
+窄表：字段扩展性差，不易用。 多用于建立用户画像。
+
+宽表：字段扩展性差，易用
+
+---
+
+## 分区表
+
+`show partitions [db_name]`
+
+为什么要分区：减少表的数据量。避免hive全表扫描，提升查询效率。一般针对冗余数据做分区。
+
+分区：将整个表的数据在存储时划分成多个子目录来存储(子目录就是以分区名来名称, partitioned by(分区名 数据类型))
+
+    静态分区：插入的时候知道分区类型，而且每个分区写一个load data。
+
+    动态分区：动态分区可以根据查询得到的数据动态分配到分区里。其实动态分区与静态分区区别就是不指定分区目录，由系统自己选择。
+
+    动态分区步骤：
+    1、启动动态分区功能，`set hive.exec.dynamic.partition=true;`
+    2、`create table [table_name] (xxx string ...) partitioned by([label_name]) ...`
+    3、`insert overwrite [table_name] partition([label_name]) select ...`
+
+注意，动态分区不允许主分区采用动态列而副分区采用静态列，这样将导致所有的主分区都要创建副分区静态列所定义的分区。
+
+动态分区可以允许所有的分区列都是动态分区列，但是要设置一个参数：`set hive.exec.dynamic.partition.mode=nostrick;`
+
+---
+## 严格模式
+
+1、设置严格模式：`set hive.mapred.mode = [];` 一般企业中会使用严格模式，提高效率，减少资源占用。
+
+(1) 有partition的表查询需要加上**where子句**，筛选部分**数据实现分区裁剪**，即不允许全表全分区扫描，防止数据过大
+(2) order by 执行时只产生一个reduce，必须加上limit限制结果的条数，防止数据量过大造成1个reduce超负荷，否则会报错。利用combiner做优化。
+(3) join时，如果只有一个reduce，则不支持笛卡尔积查询。也就是说必须要有on语句的关联条件。
+
+2、group by和order by 同时使用，不会按组进行排序where,group by,having,order by同时使用，执行顺序为
+（1）where过滤数据
+（2）对筛选结果集group by分组，group by 执行顺序是在select 之前的。因此group by中不能使用select 后面字段的别名的。
+（3）对每个分组进行select查询，提取对应的列，有几组就执行几次
+（4）再进行having筛选每组数据
+（5）最后整体进行order by排序
+
+---
+## 数据分桶
+
+ Hive 的分桶原理可以理解为MapReduce中的HashPartitioner。基于Hash值对数据进行分桶，用来解决数据倾斜问题。（按照分桶字段（列）的hash值除以分桶的个数取余（bucket_id= column.hashcode % bucket.num）
+
+ 作用：
+
+    数据抽样：在处理大规模数据集时，尤其是在数据挖掘阶段，可以用一份数据验证代码运。抽样分析等。
+    map-side join：可以获得更高的查询效率。
+
+创建：
+
+    1、`set hive.enforce.bucketing = true` 临时设置为true，会自动根据bucket个数，自动分配reduce task的个数，reduce个数和bucket个数保持一致。
+    2、... clustered by ([字段]表中已有字段，) into 4 buckets 
+    3、导入数据：`insert into [test_bucket] select * from [need_bucket] cluster by ([id])`
+    4、数据抽样：`select columns from table [tables_name](bucket x out of y on column)` x表示第几个分桶，y表示隔几个分桶取一个。
