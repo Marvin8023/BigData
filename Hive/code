@@ -20,7 +20,7 @@ from orders od join(
     select order_id,count(*) as pd_cnt
     from product group by order_id
 )pd
-on od.order_id == pd.order_id
+on od.order_id =pd.order_id
 group by od.user_id;
 
 4、每个用户在这一周中的购买订单的分布情况
@@ -44,10 +44,36 @@ sum(pd_count)/ceiling(sum(cast(if(days_since_prior_order="","0.0",days_since_pri
 from orders od join (
     select order_id,count(*) as pd_count from product 
     group by order_id 
-)pd on od.order_id == pd.order_id
+)pd on od.order_id = pd.order_id
 group by user_id;
 
+6、每个用户最喜欢购买的三个物品
+select user_id,collect_list(product_id) from
+    (select user_id,product_id,rank_number from
+        (select user_id,product_id,product_count,row_number()
+        over(partition by user_id order by product_count desc) as rank_number from
+            (select user_id,product_id,count(*) as product_count 
+            from orders od join product pd on od.order_id == pd.order_id
+            group by user_id,product_id)table_product_count 
+        ) table_product_count_rank
+    where rank_number <= 3) table_product_count_rank_up3 
+group by user_id;
 
+select user_id, collect_list(product_id)
+from
+(
+    select user_id, product_id, pro_cnt, row_num
+    (
+        select user_id, product_id, pro_cnt
+        row_number() over(partition by user_id order by pro_cnt desc) as row_number
+        from
+            (
+            select user_id, product_id,count(1) as pro_cnt
+            from orders od join product pr on od.order_id = pr.order_id
+            group by user_id, product_id
+            )t
+        )t1 where row_num<=3
+    )t2 group by user_id
 
-
+select * from orders od left join product pr on od.order_id = pr.order_id;
 

@@ -246,3 +246,86 @@ from … where … select … group by … having … order by …
     2、... clustered by ([字段]表中已有字段，) into 4 buckets 
     3、导入数据：`insert into [test_bucket] select * from [need_bucket] cluster by ([id])`
     4、数据抽样：`select columns from table [tables_name](bucket x out of y on column)` x表示第几个分桶，y表示隔几个分桶取一个。
+
+### hive 优化
+
+
+
+
+## 错误：
+
+1、
+    Diagnostic Messages for this Task:
+    Error: java.lang.RuntimeException: Error in configuring object
+            at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:112)
+            at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:78)
+            at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:136)
+            at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:449)
+            at org.apache.hadoop.mapred.MapTask.run(MapTask.java:343)
+            at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:164)
+            at java.security.AccessController.doPrivileged(Native Method)
+            at javax.security.auth.Subject.doAs(Subject.java:422)
+            at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1698)
+            at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:158)
+    Caused by: java.lang.reflect.InvocationTargetException
+            at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+            at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+            at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+            at java.lang.reflect.Method.invoke(Method.java:498)
+            at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:109)
+            ... 9 more
+    Caused by: java.lang.RuntimeException: Error in configuring object
+            at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:112)
+            at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:78)
+            at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:136)
+            at org.apache.hadoop.mapred.MapRunner.configure(MapRunner.java:38)
+            ... 14 more
+    Caused by: java.lang.reflect.InvocationTargetException
+            at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+            at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+            at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+            at java.lang.reflect.Method.invoke(Method.java:498)
+            at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:109)
+            ... 17 more
+    Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
+            at org.apache.hadoop.hive.ql.exec.persistence.MapJoinEagerRowContainer.toList(MapJoinEagerRowContainer.java:172)
+            at org.apache.hadoop.hive.ql.exec.persistence.MapJoinEagerRowContainer.read(MapJoinEagerRowContainer.java:147)
+            at org.apache.hadoop.hive.ql.exec.persistence.MapJoinEagerRowContainer.read(MapJoinEagerRowContainer.java:131)
+            at org.apache.hadoop.hive.ql.exec.persistence.MapJoinTableContainerSerDe.load(MapJoinTableContainerSerDe.java:85)
+            at org.apache.hadoop.hive.ql.exec.mr.HashTableLoader.load(HashTableLoader.java:98)
+            at org.apache.hadoop.hive.ql.exec.MapJoinOperator.loadHashTable(MapJoinOperator.java:289)
+            at org.apache.hadoop.hive.ql.exec.MapJoinOperator$1.call(MapJoinOperator.java:174)
+            at org.apache.hadoop.hive.ql.exec.MapJoinOperator$1.call(MapJoinOperator.java:170)
+            at org.apache.hadoop.hive.ql.exec.mr.ObjectCache.retrieve(ObjectCache.java:55)
+            at org.apache.hadoop.hive.ql.exec.mr.ObjectCache.retrieveAsync(ObjectCache.java:63)
+            at org.apache.hadoop.hive.ql.exec.MapJoinOperator.initializeOp(MapJoinOperator.java:168)
+            at org.apache.hadoop.hive.ql.exec.Operator.initialize(Operator.java:363)
+            at org.apache.hadoop.hive.ql.exec.Operator.initialize(Operator.java:482)
+            at org.apache.hadoop.hive.ql.exec.Operator.initializeChildren(Operator.java:439)
+            at org.apache.hadoop.hive.ql.exec.Operator.initialize(Operator.java:376)
+            at org.apache.hadoop.hive.ql.exec.mr.ExecMapper.configure(ExecMapper.java:131)
+            at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+            at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+            at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+            at java.lang.reflect.Method.invoke(Method.java:498)
+            at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:109)
+            at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:78)
+            at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:136)
+            at org.apache.hadoop.mapred.MapRunner.configure(MapRunner.java:38)
+            at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+            at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+            at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+            at java.lang.reflect.Method.invoke(Method.java:498)
+            at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:109)
+            at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:78)
+            at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:136)
+            at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:449)
+
+
+    FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+    MapReduce Jobs Launched: 
+    Stage-Stage-6: Map: 1   Cumulative CPU: 105.5 sec   HDFS Read: 0 HDFS Write: 0 FAIL
+    Total MapReduce CPU Time Spent: 1 minutes 45 seconds 500 msec
+
+    未解决。
+
