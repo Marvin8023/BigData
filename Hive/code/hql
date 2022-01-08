@@ -59,21 +59,22 @@ select user_id,collect_list(product_id) from
     where rank_number <= 3) table_product_count_rank_up3 
 group by user_id;
 
-select user_id, collect_list(product_id)
-from
-(
-    select user_id, product_id, pro_cnt, row_num
-    (
-        select user_id, product_id, pro_cnt
-        row_number() over(partition by user_id order by pro_cnt desc) as row_number
-        from
-            (
-            select user_id, product_id,count(1) as pro_cnt
-            from orders od join product pr on od.order_id = pr.order_id
-            group by user_id, product_id
-            )t
-        )t1 where row_num<=3
-    )t2 group by user_id
 
-select * from orders od left join product pr on od.order_id = pr.order_id;
+7、create table app (device_id string, applist string) row format delimited fields terminated by "," tblproperties("skip.header.line.count"="1");
 
+load data local inpath '/mnt/badou_project_data/project2/app.csv' into table app;
+
+8、create table user_log(id string,target string, timestamps string, deviceid string, newsid string, guid string, pos string, app_version string, device_vender string, netmodel string, osversion string, lng string, lat string, device_version string, ts string)
+row format delimited fields terminated by "," tblproperties("skip.header.line.count=1");
+
+load data local inpath '/mnt/badou_project_data/project2/sample_train.csv' into table user_log;
+
+select /* +MAPJOIN(app)*/ t1.*, t2.* from user_log t1 join app t2 on deviceid = device_id;
+
+9、上传jar包并使用
+
+add jar [jar_path]
+
+create temporary function willsion_udf as 'udf.Wilson';
+
+select willsion_udf(200,100);

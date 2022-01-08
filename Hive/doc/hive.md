@@ -247,10 +247,21 @@ from … where … select … group by … having … order by …
     3、导入数据：`insert into [test_bucket] select * from [need_bucket] cluster by ([id])`
     4、数据抽样：`select columns from table [tables_name](bucket x out of y on column)` x表示第几个分桶，y表示隔几个分桶取一个。
 
-### hive 优化
+## hive 优化
 
+### 读入优化
 
+### distinct优化
 
+### 小文件压缩
+
+#### 参数配置
+
+##### 输入
+
+##### 输出
+
+#### 存储格式
 
 ## 错误：
 
@@ -327,5 +338,6 @@ from … where … select … group by … having … order by …
     Stage-Stage-6: Map: 1   Cumulative CPU: 105.5 sec   HDFS Read: 0 HDFS Write: 0 FAIL
     Total MapReduce CPU Time Spent: 1 minutes 45 seconds 500 msec
 
-    未解决。
+    大小表关联，默认map join,申请本地内存巨大，导致报错退出.
+    set hive.auto.convert.join=false;
 
