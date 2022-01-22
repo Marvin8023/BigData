@@ -1,4 +1,4 @@
-package kmeans_1;
+package marpreduce.kmeans_1;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -47,8 +47,8 @@ public class kmeansMap extends Mapper<LongWritable, Text, Text, Text> {
             double dist = 0;
             //计算聚类中心距离样本点的距离
             for (int j = 1; j < center.size(); j++) {
-                double a = Double.parseDouble(parameter.get(j));
-                double b = Double.parseDouble(center.get(j));
+                Double.parseDouble(parameter.get(j));
+                Double.parseDouble(center.get(j));
             }
             if (dist < minDist) {
                 outKey = center.get(0); // 类编号

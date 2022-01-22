@@ -1,6 +1,6 @@
-package mutil_mr_10.mr1;
+package marpreduce.mutil_mr_10.mr1;
 
-import mutil_mr_10.company.DoubleMr;
+import marpreduce.mutil_mr_10.company.DoubleMr;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;

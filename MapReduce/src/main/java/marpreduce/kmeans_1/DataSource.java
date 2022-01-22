@@ -1,4 +1,4 @@
-package kmeans_1;
+package marpreduce.kmeans_1;
 
 import org.apache.hadoop.fs.Path;
 

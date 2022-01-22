@@ -1,7 +1,7 @@
-package mutil_mr_10.mr1;
+package marpreduce.mutil_mr_10.mr1;
 
-import utils.hadoopHelp;
-import mutil_mr_10.company.DoubleMr;
+import marpreduce.utils.hadoopHelp;
+import marpreduce.mutil_mr_10.company.DoubleMr;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;

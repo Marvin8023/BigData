@@ -1,4 +1,4 @@
-package utils;
+package marpreduce.utils;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.hadoop.conf.Configuration;

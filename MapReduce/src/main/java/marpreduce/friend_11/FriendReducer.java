@@ -1,4 +1,4 @@
-package friend_11;
+package marpreduce.friend_11;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;

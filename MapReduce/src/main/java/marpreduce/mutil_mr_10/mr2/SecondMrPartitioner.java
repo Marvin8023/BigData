@@ -1,6 +1,6 @@
-package mutil_mr_10.mr2;
+package marpreduce.mutil_mr_10.mr2;
 
-import mutil_mr_10.company.DoubleMr;
+import marpreduce.mutil_mr_10.company.DoubleMr;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.mapreduce.Partitioner;
 

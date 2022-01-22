@@ -1,4 +1,4 @@
-package avg_03;
+package marpreduce.avg_03;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;

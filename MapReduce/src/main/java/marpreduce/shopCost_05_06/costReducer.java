@@ -1,4 +1,4 @@
-package shopCost_05_06;
+package marpreduce.shopCost_05_06;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;

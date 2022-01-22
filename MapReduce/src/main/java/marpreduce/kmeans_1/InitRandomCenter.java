@@ -1,4 +1,4 @@
-package kmeans_1;
+package marpreduce.kmeans_1;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
-import utils.hadoopHelp;
+import marpreduce.utils.hadoopHelp;
 
 import java.io.IOException;
 import java.util.*;

@@ -1,4 +1,4 @@
-package mutil_mr_10.company;
+package marpreduce.mutil_mr_10.company;
 
 import org.apache.hadoop.io.WritableComparable;
 

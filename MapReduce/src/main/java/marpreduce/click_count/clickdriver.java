@@ -1,4 +1,4 @@
-package click_count;
+package marpreduce.click_count;
 
 
 import org.apache.hadoop.conf.Configuration;
@@ -7,8 +7,10 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import marpreduce.utils.hadoopHelp;
+
 import org.apache.hadoop.mapreduce.Job;
-import utils.hadoopHelp;
 
 public class clickdriver {
     public static void main(String[] args) throws Exception{

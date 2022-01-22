@@ -1,4 +1,4 @@
-package ip_02;
+package marpreduce.ip_02;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.NullWritable;

@@ -1,32 +1,13 @@
-package test;
+package marpreduce.test;
 import org.apache.hadoop.conf.Configuration;
 
-import java.net.Inet4Address;
-import utils.hadoopHelp;
+import marpreduce.utils.hadoopHelp;
 import java.util.*;
 
 public class test_connect {
     public static void main(String[] args) throws Exception {
 
-        Random r = new Random();
-        //skip_step 10000:
-//        int rand=r.nextInt(100);
-//        System.out.println(rand);
-//
-//        HashMap<String, Integer> map = new HashMap<String, Integer>();
-//        map.put("d", 2);
-//        map.put("c", 1);
-//        map.put("b", 4);
-//        map.put("a", 3);
-//        List<Map.Entry<String, Integer>> infoIds = new ArrayList<Map.Entry<String, Integer>>(map.entrySet());
-//
-//        // 对HashMap中的 value 进行排序
-//        Collections.sort(infoIds, new Comparator<Map.Entry<String, Integer>>() {
-//            public int compare(Map.Entry<String, Integer> o1,
-//                               Map.Entry<String, Integer> o2) {
-//                return (o2.getValue()).compareTo(o1.getValue());
-//            }
-//        });
+        new Random();
 
 
 

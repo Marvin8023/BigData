@@ -1,4 +1,4 @@
-package kmeans_1;
+package marpreduce.kmeans_1;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
@@ -6,7 +6,6 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.util.LineReader;
 
-import javax.jws.soap.SOAPBinding;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,19 +25,20 @@ public class Util {
             //一行一行读取参数，存在Text中，再转化为String类型
             Text lineText=new Text();
             String tmpStr=null;
-            LineReader linereader=new LineReader(fsIn,conf);
-            while(linereader.readLine(lineText)>0){
-                ArrayList<String> oneCenter=new ArrayList<>();
-                tmpStr=lineText.toString();
-                //分裂String，存于容器中
-                //context.write(new Text(k + "\t" + point), NullWritable.get());
-                String[] tmp=tmpStr.replace("\t"," ").trim().replace(" ",",").split(",");
+            try (LineReader linereader = new LineReader(fsIn,conf)) {
+                while(linereader.readLine(lineText)>0){
+                    ArrayList<String> oneCenter=new ArrayList<>();
+                    tmpStr=lineText.toString();
+                    //分裂String，存于容器中
+                    //context.write(new Text(k + "\t" + point), NullWritable.get());
+                    String[] tmp=tmpStr.replace("\t"," ").trim().replace(" ",",").split(",");
 
-                for(int i=0;i<tmp.length;i++){
-                    oneCenter.add(tmp[i]);
+                    for(int i=0;i<tmp.length;i++){
+                        oneCenter.add(tmp[i]);
+                    }
+                    //将此点加入集合
+                    centers.add(oneCenter);
                 }
-                //将此点加入集合
-                centers.add(oneCenter);
             }
             fsIn.close();
         }catch(IOException e){

@@ -1,13 +1,12 @@
-package friend_11;
+package marpreduce.friend_11;
 
-import mutil_mr_10.mr2.SecondMrReducer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import utils.hadoopHelp;
+import marpreduce.utils.hadoopHelp;
 
 import java.io.IOException;
 
@@ -42,7 +41,7 @@ public class FriendDriver {
         if( hadoopHelp.testExist(conf,"/hadoop_test/findFriend/result1")){
             hadoopHelp.rmDir(conf,"/hadoop_test/findFriend/result1");}
         FileOutputFormat.setOutputPath(job2, new Path("/hadoop_test/findFriend/result1"));
-        boolean res2 = job2.waitForCompletion(true);
+        job2.waitForCompletion(true);
 
         System.exit(res1?0:1);
     }

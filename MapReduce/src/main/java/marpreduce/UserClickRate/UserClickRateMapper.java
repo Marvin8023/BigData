@@ -1,4 +1,4 @@
-package UserClickRate;
+package marpreduce.UserClickRate;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

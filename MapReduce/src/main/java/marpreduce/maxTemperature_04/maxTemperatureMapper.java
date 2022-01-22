@@ -1,4 +1,4 @@
-package maxTemperature_04;
+package marpreduce.maxTemperature_04;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -13,7 +13,7 @@ public class maxTemperatureMapper extends Mapper<LongWritable, Text, Text, IntWr
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        String v = value.toString();
+        value.toString();
 
         String line=value.toString();
 //		拿出年份

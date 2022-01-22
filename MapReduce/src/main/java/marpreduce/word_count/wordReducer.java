@@ -1,4 +1,4 @@
-package word_count;
+package marpreduce.word_count;
 
 
 import org.apache.hadoop.io.LongWritable;

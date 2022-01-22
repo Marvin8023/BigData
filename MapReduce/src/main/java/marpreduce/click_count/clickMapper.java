@@ -1,4 +1,4 @@
-package click_count;
+package marpreduce.click_count;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

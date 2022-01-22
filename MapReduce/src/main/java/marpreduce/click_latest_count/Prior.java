@@ -1,4 +1,4 @@
-package click_latest_count;
+package marpreduce.click_latest_count;
 
 public class Prior {
     private String id;
