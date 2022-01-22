@@ -1,7 +1,10 @@
 # Hive
 
+---
 ## Hive基础
 1、基于hadoop的数据仓库工具
+
+>Hive是一个构建在Hadoop之上的数据仓库软件,它可以使已经存储的数据结构化，它提供类似sql的查询语句HiveQL对数据进行分析处理。
 
 >ps: **数据仓库**系统的主要应用主要是**OLAP**（On-Line Analytical Processing），支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果。**数据库 OLTP** T:transaction：传统的关系型数据库的主要应用，主要是基本的、日常的事务处理,注重时效性，例如银行交易。
 
@@ -19,18 +22,160 @@ eg: wordcount:
 
 ---
 ## Hive安装
-1、
 
 启动流程：hadoop->mysql(`systemctl restart mysqld.service`)->hive
 
+---
 ## Hive基本语法
->https://www.yiibai.com/hive
 
-### 创建数据库: 
+[Hive Wiki](https://cwiki.apache.org/confluence/display/Hive#Home-ApacheHive)
 
-`create database [database_name];`
+### Hive 数据抽象/结构：
 
-### 建表 
+    database                              HDFS一个目录
+        table                             HDFS一个目录
+            data                          HDFS一个文件
+            partition   分区表             HDFS一个目录
+                data                      HDFS一个文件
+                bucket  分桶               HDFS一个文件
+
+### 管理表和外部表
+
+根据数据是否受Hive管理，分为：Managed Table（管理表）、External Table（外表）
+
+> 区别：
+>Managed Table：
+>HDFS存储数据受Hive管理，在统一的路径下: ${hive.metastore.warehouse.dir}/{database_name}.db/{tablename}
+>Hive对表的删除操作影响实际数据的删除
+
+>External Table：
+>HDFS存储路径不受Hive管理，只是Hive元数据不HDFS数据路径的一个映射
+>Hive对表的删除操作仅仅删除元数据，实际数据不受影响
+
+### Hive 文件格式
+
+在创建表时，通过STORED AS 语句指定存储文件格式
+
+行存储
+- 适合增加、插入、删除、修改的事务处理处理
+- 对列的统计分析却需要耗费大量的I/O。对指定列迚行统计分析时，需要把整张表读叏到内存，然后再逐行对列迚行读叏分析操作
+
+列存储
+- 对增加、插入、删除、修改的事务处理I/O高、效率低
+- 非常适合做统计查询类操作，统计分析一般是针对指定列迚行，只需要把指定列读叏到内存迚行操作
+
+| 文件格式 | 类型 | 存储 | 备注 | 优点 | 缺点 |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| TextFile | 文本 | 行存储 | 默认格式 可通过hive.default.fileformat参数定义为默认其他格式 | 可读性好，肉眼可读 | 磁盘开销大，数据解析开销大 可以配合压缩来缓解IO压力，比如lzo/gzip/bzip2 对于Schema的遍历支持很弱，只能在最后字段新增字段，已存在的字段无法删除|
+| SequenceFile | 二进制 | 行存储 | 数据以<key,value>的形式序列化到文件中 | 相比Text更紧凑，支持Split | 生产中基本不会用，k-v格式，比源文本格式占用磁盘更多 没有Metadata，只能新增字段 |
+| ORC | 二进制 | 列存储 | ORC支持ACID事务及CBO优化器 |  | 生产中最常用，列式存储 |
+| Parquet | 二进制 | 列存储 | 使用Protocolbuffer，thrift，json等，将这类数据存储成列式格式，以方便对其高效压缩和编码，使用更少的IO操作取出需要的数据 | 能够透明地将Protobuf和thrift类型的数据进行列式存储 | 生产中最常用，列式存储 |
+| JSONFILE | 二进制 | 列存储 | Hive 4.0.0 及以上版本才支持 |  |  |
+
+
+### DDl (Data Definition Language)
+
+#### Database
+
+##### Show Database
+
+`SHOW (DATABASES|SCHEMAS) [LIKE‘identifier_with_wildcards’];`
+
+> SHOW 命令用于列出符合条件的数据库
+
+##### DESCRIBE Database
+
+`DESCRIBE DATABASE [EXTENDED] db_name;`
+
+> DESCRIBE 描述Database定义
+
+##### Create Database
+
+`CREATE [REMOTE] (DATABASE|SCHEMA) [IF NOT EXISTS] database_name`
+  `[COMMENT database_comment]`
+  `[LOCATION hdfs_path]`
+  `[MANAGEDLOCATION hdfs_path]`
+  `[WITH DBPROPERTIES (property_name=property_value, ...)];`
+
+> REMOTE 可选参数 用于支持Data_Connectors
+> IF NOT EXISTS 数据库是否存在，不存在就会创建，存在就不会创建
+> COMMENT：数据库的描述
+> LOCATION：命令是用于外部表 创建数据库的地址，默认位置hive-site.xml 中 hive.metastore.warehouse.dir 配置位置。
+> MANAGEDLOCATION 用于hive的管理表
+> WITH DBPROPERTIES：数据库的属性
+
+##### Drop Database
+
+`DROP (DATABASE|SCHEMA) [IF EXISTS] database_name [RESTRICT|CASCADE];`
+
+> RESTRICT：默认是restrict，如果该数据库还有表存在则报错；
+> CASCADE：级联删除数据库(当数据库还有表时，级联删除表后在删除数据库)。
+
+##### Alter Database
+
+`ALTER (DATABASE|SCHEMA) database_name SET DBPROPERTIES (property_name=property_value, ...);   -- (Note: SCHEMA added in Hive 0.14.0)`
+ 
+`ALTER (DATABASE|SCHEMA) database_name SET OWNER [USER|ROLE] user_or_role;   -- (Note: Hive 0.13.0 and later; SCHEMA added in Hive 0.14.0)`
+  
+`ALTER (DATABASE|SCHEMA) database_name SET LOCATION hdfs_path; -- (Note: Hive 2.2.1, 2.4.0 and later)`
+ 
+`ALTER (DATABASE|SCHEMA) database_name SET MANAGEDLOCATION hdfs_path; -- (Note: Hive 4.0.0 and later)`
+
+> DBPROPERTIES 设置数据库属性信息
+> OWNER 设置数据库所属用户
+> LOCATION 和 MANAGEDLOCATION 不会将数据库当前目录的内容移动到新指定的位置。它不会更改与指定数据库下的任何表/分区关联的位置。它仅更改将为该数据库添加新表的默认父目录。这种行为类似于更改表目录不会将现有分区移动到其他位置。
+
+##### Use Databese
+
+`USE database_name;`
+
+> 切换到指定Databese
+
+#### Table
+
+##### Create Table 
+
+```
+CREATE [TEMPORARY] [EXTERNAL] TABLE [IF NOT EXISTS] [db_name.]table_name    -- (Note: TEMPORARY available in Hive 0.14.0 and later)
+  [(col_name data_type [column_constraint_specification] [COMMENT col_comment], ... [constraint_specification])]
+  [COMMENT table_comment]
+  [PARTITIONED BY (col_name data_type [COMMENT col_comment], ...)]
+  [CLUSTERED BY (col_name, col_name, ...) [SORTED BY (col_name [ASC|DESC], ...)] INTO num_buckets BUCKETS]
+  [SKEWED BY (col_name, col_name, ...)                  -- (Note: Available in Hive 0.10.0 and later)]
+     ON ((col_value, col_value, ...), (col_value, col_value, ...), ...)
+     [STORED AS DIRECTORIES]
+  [
+   [ROW FORMAT row_format] 
+   [STORED AS file_format]
+     | STORED BY 'storage.handler.class.name' [WITH SERDEPROPERTIES (...)]  -- (Note: Available in Hive 0.6.0 and later)
+  ]
+  [LOCATION hdfs_path]
+  [TBLPROPERTIES (property_name=property_value, ...)]   -- (Note: Available in Hive 0.6.0 and later)
+  [AS select_statement];   -- (Note: Available in Hive 0.5.0 and later; not supported for external tables)
+ 
+CREATE [TEMPORARY] [EXTERNAL] TABLE [IF NOT EXISTS] [db_name.]table_name
+  LIKE existing_table_or_view_name
+  [LOCATION hdfs_path];
+```
+eg:
+```
+CREATE EXTERNAL TABLE page_view(viewTime INT, userid BIGINT,
+     page_url STRING, referrer_url STRING,
+     ip STRING COMMENT 'IP Address of the User',
+     country STRING COMMENT 'country of origination')
+ COMMENT 'This is the staging page view table'
+ ROW FORMAT DELIMITED FIELDS TERMINATED BY '\054'
+ STORED AS TEXTFILE
+ LOCATION '<hdfs_location>';
+```
+
+> TEMPORARY 临时表，只对当前session有效，session退出后，表自动删除 限制：不支持分区字段和创建索引。
+> EXTERNAL 外部表 Hive上有两种类型的表，一种是Managed Table(默认的)，另一种是External Table（加上EXTERNAL关键字）。它俩的主要区别在于：当我们drop表时，Managed Table会同时删去data（存储在HDFS上）和meta data（存储在MySQL），而External Table只会删meta data。
+> DELIMITED 子句进行读取 分隔的文件
+> PARTITIONED BY 分区
+> CLUSTERED BY 分桶
+> SKEWED BY  !!to do!!
+
 PS:查询建表语句 `show create table [table_name];`
 
 1.直接建表：
@@ -63,11 +208,11 @@ PS:查询建表语句 `show create table [table_name];`
 
 ### 查询
 
-#### 基本查询 
+##### 基本查询 
 
 `select … from … where … group by … having … order by`
 
-#### 常用查询函数
+##### 常用查询函数
 
 1.常见函数：
 
@@ -102,6 +247,14 @@ PS:查询建表语句 `show create table [table_name];`
 格式化数据.
 
 6.自定义函数
+    eg：
+        编写py or java
+        
+        add jar [jar_path]
+
+        create temporary function willsion_udf as 'udf.Wilson';
+
+        select willsion_udf(200,100);
 
     （1）UDF（User-Defined-Function）
 
@@ -255,13 +408,13 @@ from … where … select … group by … having … order by …
 
 ### 小文件压缩
 
-#### 参数配置
+##### 参数配置
 
-##### 输入
+###### 输入
 
-##### 输出
+###### 输出
 
-#### 存储格式
+##### 存储格式
 
 ## 错误：
 
