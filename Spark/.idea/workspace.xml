@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc9b232d-8f2a-4d4d-8629-f6b4a059a183" name="变更" comment="变更">
+      <change afterPath="$PROJECT_DIR$/../.idea/BigData.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hive/code/udf_java/._udf_java.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MapReduce/.idea/._mapreduce.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/scala_sdk_2_12_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datas/1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/Kmeans ++.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/Spark.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/截屏2022-03-27 10.48.51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/距离计算/余弦相似度.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/距离计算/切比雪夫.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/距离计算/曼哈顿.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/距离计算/杰卡德.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/距离计算/欧式距离.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/距离计算/汉明距离.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/距离计算/闵可夫斯基.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/协同过滤.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/距离计算.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/.part-00000.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/.part-00001.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/.part-00002.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/.part-00003.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/part-00000" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/part-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/part-00002" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/part-00003" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Spark/MusicOfflineRecommend/Hive/Create" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Spark/MusicOfflineRecommend/Learning/UserCF.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Spark/MusicOfflineRecommend/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Spark/com/spark/learning/Kmeans.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Spark/com/spark/learning/core/RDD.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Spark/com/spark/learning/core/T1.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Spark/com/spark/learning/core/Transform.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Spark/com/spark/learning/core/WordCount.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hive/code/udf_java/src/main/java/udf/Wilson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Hive/code/udf_java/src/main/java/udf/Wilson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/company/DoubleMr.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/company/DoubleMr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr1/FirstMrDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr1/FirstMrDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr1/FirstMrMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr1/FirstMrMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr1/FirstMrReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr1/FirstMrReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr2/SecondMrDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr2/SecondMrDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr2/SecondMrMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/mutil_mr_10/mr2/SecondMrMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/word_count/WordCountCombine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/word_count/WordCountCombine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/word_count/WordCountDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/word_count/WordCountDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/word_count/wordMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/word_count/wordMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/word_count/wordReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MapReduce/src/main/java/marpreduce/word_count/wordReducer.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Package Object" />
+        <option value="Scala Object" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\Program Files\maven_repository" />
+        <option name="mavenHome" value="E:/Program Files/apache-maven-3.8.5" />
+        <option name="userSettingsFile" value="E:\Program Files\apache-maven-3.8.5\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="26JQJmaHtHVxUBHgzIx6zgC7E73" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="SDK" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.43908045" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager" selected="应用程序.WordCount">
+    <configuration name="Kmeans" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.spark.learning.Kmeans" />
+      <module name="Spark" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.spark.learning.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Spark01_RDD" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.spark.learning.core.Spark01_RDD" />
+      <module name="Spark" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Transform" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.spark.learning.core.Transform" />
+      <module name="Spark" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordCount" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.spark.learning.core.WordCount" />
+      <module name="Spark" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="kmeans" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.spark.learning.kmeans" />
+      <module name="Spark" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.spark.learning.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.WordCount" />
+        <item itemvalue="应用程序.Kmeans" />
+        <item itemvalue="应用程序.kmeans" />
+        <item itemvalue="应用程序.Transform" />
+        <item itemvalue="应用程序.Spark01_RDD" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="cc9b232d-8f2a-4d4d-8629-f6b4a059a183" name="变更" comment="" />
+      <created>1647139142774</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647139142774</updated>
+      <workItem from="1647139143908" duration="3365000" />
+      <workItem from="1647142539770" duration="5462000" />
+      <workItem from="1647488283915" duration="91000" />
+      <workItem from="1647488390993" duration="7160000" />
+      <workItem from="1648057437649" duration="25000" />
+      <workItem from="1648057479787" duration="1212000" />
+      <workItem from="1648498665370" duration="195000" />
+      <workItem from="1648498895188" duration="1024000" />
+      <workItem from="1651546731351" duration="225000" />
+      <workItem from="1651546973758" duration="54000" />
+      <workItem from="1651547045059" duration="163000" />
+      <workItem from="1651547261161" duration="9101000" />
+      <workItem from="1651767301999" duration="755000" />
+      <workItem from="1651939006305" duration="1693000" />
+      <workItem from="1651988101592" duration="23305000" />
+      <workItem from="1652449916157" duration="13495000" />
+      <workItem from="1652791766245" duration="102000" />
+      <workItem from="1652793126904" duration="618000" />
+      <workItem from="1652793764144" duration="1285000" />
+      <workItem from="1652795073383" duration="1143000" />
+      <workItem from="1652796493635" duration="263000" />
+      <workItem from="1652796776391" duration="1209000" />
+      <workItem from="1652800821311" duration="65000" />
+      <workItem from="1652800909833" duration="787000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

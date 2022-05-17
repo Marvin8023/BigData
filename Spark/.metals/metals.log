@@ -1,0 +1,113 @@
+2022.03.29 04:13:37 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/lsp.trace.json or /Users/marvin/Library/Caches/org.scalameta.metals/lsp.trace.json
+2022.03.29 04:13:37 INFO  logging to file /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/metals.log
+2022.03.29 04:13:37 INFO  Started: Metals version 0.11.2 in workspace '/Users/marvin/Documents/marvin/code/BigData/Spark' for client Visual Studio Code 1.65.2.
+2022.03.29 04:13:37 INFO  Parse release: 11.0.12
+2022.04.23 11:52:15 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/lsp.trace.json or /Users/marvin/Library/Caches/org.scalameta.metals/lsp.trace.json
+2022.04.23 11:52:15 INFO  logging to file /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/metals.log
+2022.04.23 11:52:15 INFO  Started: Metals version 0.11.2 in workspace '/Users/marvin/Documents/marvin/code/BigData/Spark' for client Visual Studio Code 1.66.0.
+2022.04.23 11:52:15 INFO  Parse release: 11.0.12
+2022.04.23 11:52:20 INFO  time: initialize in 5.04s
+2022.04.23 11:52:24 WARN  Build server is not auto-connectable.
+2022.04.23 11:52:24 INFO  skipping build import with status 'Requested'
+2022.04.23 11:52:25 WARN  no build target for: /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala
+2022.04.23 11:52:55 INFO  no build target found for /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala. Using presentation compiler with project's scala-library version: 3.1.1
+2022.04.23 11:52:56 INFO  time: code lens generation in 27s
+2022.04.23 11:52:56 INFO  time: code lens generation in 30s
+2022.04.23 11:54:36 INFO  shutting down Metals
+2022.04.23 11:54:47 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/lsp.trace.json or /Users/marvin/Library/Caches/org.scalameta.metals/lsp.trace.json
+2022.04.23 11:54:48 INFO  logging to file /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/metals.log
+2022.04.23 11:54:48 INFO  Started: Metals version 0.11.2 in workspace '/Users/marvin/Documents/marvin/code/BigData/Spark' for client Visual Studio Code 1.66.0.
+2022.04.23 11:54:48 INFO  Parse release: 11.0.12
+2022.04.23 11:54:49 INFO  time: initialize in 1.69s
+2022.04.23 11:54:50 WARN  Build server is not auto-connectable.
+2022.04.23 11:54:50 INFO  skipping build import with status 'Requested'
+2022.04.23 11:54:50 WARN  no build target for: /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala
+2022.04.23 11:54:53 INFO  no build target found for /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala. Using presentation compiler with project's scala-library version: 3.1.1
+2022.04.23 11:54:54 INFO  time: code lens generation in 2.29s
+2022.04.23 11:54:54 INFO  time: code lens generation in 2.61s
+4月 23, 2022 11:57:44 上午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2022.04.23 11:57:57 INFO  shutting down Metals
+2022.04.23 11:58:05 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/lsp.trace.json or /Users/marvin/Library/Caches/org.scalameta.metals/lsp.trace.json
+2022.04.23 11:58:06 INFO  logging to file /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/metals.log
+2022.04.23 11:58:06 INFO  Started: Metals version 0.11.2 in workspace '/Users/marvin/Documents/marvin/code/BigData/Spark' for client Visual Studio Code 1.66.2.
+2022.04.23 11:58:06 INFO  Parse release: 11.0.12
+2022.04.23 11:58:07 INFO  time: initialize in 1.41s
+2022.04.23 11:58:07 WARN  Build server is not auto-connectable.
+2022.04.23 11:58:07 INFO  skipping build import with status 'Requested'
+2022.04.23 11:58:08 WARN  no build target for: /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala
+4月 23, 2022 11:58:09 上午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2022.04.23 11:58:10 INFO  no build target found for /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala. Using presentation compiler with project's scala-library version: 3.1.1
+2022.04.23 11:58:11 INFO  time: code lens generation in 2.57s
+4月 23, 2022 12:00:14 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2022.04.23 12:00:35 WARN  no build target for: /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala
+4月 23, 2022 12:01:11 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 23, 2022 12:01:42 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2022.04.23 15:46:27 INFO  shutting down Metals
+2022.04.23 15:50:52 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/lsp.trace.json or /Users/marvin/Library/Caches/org.scalameta.metals/lsp.trace.json
+2022.04.23 15:50:52 INFO  logging to file /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/metals.log
+2022.04.23 15:50:52 INFO  Started: Metals version 0.11.2 in workspace '/Users/marvin/Documents/marvin/code/BigData/Spark' for client Visual Studio Code 1.66.2.
+2022.04.23 15:50:52 INFO  Parse release: 11.0.12
+2022.04.23 15:50:57 INFO  time: initialize in 5.01s
+2022.04.23 15:50:57 WARN  Build server is not auto-connectable.
+2022.04.23 15:50:57 INFO  skipping build import with status 'Requested'
+2022.04.23 15:50:58 WARN  no build target for: /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala
+2022.04.23 15:52:44 INFO  no build target found for /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala. Using presentation compiler with project's scala-library version: 3.1.1
+2022.04.23 15:52:45 INFO  time: code lens generation in 1m46s
+2022.05.02 09:53:44 INFO  shutting down Metals
+2022.05.02 10:30:07 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/lsp.trace.json or /Users/marvin/Library/Caches/org.scalameta.metals/lsp.trace.json
+2022.05.02 10:30:07 INFO  logging to file /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/metals.log
+2022.05.02 10:30:07 INFO  Started: Metals version 0.11.5 in workspace '/Users/marvin/Documents/marvin/code/BigData/Spark' for client Visual Studio Code 1.66.2.
+2022.05.02 10:30:08 INFO  time: initialize in 1.05s
+2022.05.02 10:30:08 WARN  Flyway upgrade recommended: H2 2.1.212 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.1.210.
+2022.05.02 10:30:08 WARN  Build server is not auto-connectable.
+2022.05.02 10:30:09 WARN  no build target for: /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala
+2022.05.02 10:30:19 INFO  no build target found for /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala. Using presentation compiler with project's scala-library version: 3.1.2
+2022.05.02 10:30:20 INFO  time: code lens generation in 11s
+5月 02, 2022 11:32:53 上午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+5月 02, 2022 11:38:01 上午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+5月 02, 2022 12:48:39 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+5月 02, 2022 12:50:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+5月 02, 2022 12:51:00 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+5月 02, 2022 12:51:04 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+5月 02, 2022 12:51:07 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+5月 02, 2022 12:51:20 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+5月 03, 2022 10:46:59 上午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2022.05.03 10:54:34 INFO  shutting down Metals
+2022.05.03 10:54:34 ERROR Unexpected error initializing server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequest failed with message: Canceled
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+
+2022.05.03 10:54:45 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/lsp.trace.json or /Users/marvin/Library/Caches/org.scalameta.metals/lsp.trace.json
+2022.05.03 10:54:45 INFO  logging to file /Users/marvin/Documents/marvin/code/BigData/Spark/.metals/metals.log
+2022.05.03 10:54:45 INFO  Started: Metals version 0.11.5 in workspace '/Users/marvin/Documents/marvin/code/BigData/Spark' for client Visual Studio Code 1.66.2.
+2022.05.03 10:54:46 INFO  time: initialize in 1.36s
+2022.05.03 10:54:46 WARN  Flyway upgrade recommended: H2 2.1.212 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.1.210.
+2022.05.03 10:54:46 WARN  Build server is not auto-connectable.
+2022.05.03 10:54:47 INFO  skipping build import with status 'Requested'
+2022.05.03 10:54:48 WARN  no build target for: /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala
+2022.05.03 10:54:50 INFO  no build target found for /Users/marvin/Documents/marvin/code/BigData/Spark/src/main/Spark/com/spark/learning/core/T1.scala. Using presentation compiler with project's scala-library version: 3.1.2
+2022.05.03 10:54:51 INFO  time: code lens generation in 3.59s
+2022.05.04 13:44:35 INFO  shutting down Metals
